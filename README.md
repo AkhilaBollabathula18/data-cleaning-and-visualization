@@ -21,7 +21,31 @@ This project implements an end-to-end data pipeline using Python. It ingests raw
 
 Ensure you have [uv installed](https://github.com/astral-sh/uv).
 
-### 1. Setup Environment
+### Setup Environment
 Initialize the project and install dependencies:
-```bash
-uv sync
+
+In the Terminal, run the following commands one by one:
+
+1: Install uv 
+
+pip install uv
+
+2: Initialize the project:
+
+python -m uv init
+
+3: Install the libraries:
+
+python -m uv add pandas streamlit pyarrow
+
+4: Execute the cleaning script to generate the standardized parquet file
+
+uv run etl_process2.py
+
+5: Execute the aggregation script to create summary tables
+
+uv run aggregations.py
+
+6: Start the interactive Streamlit app:
+
+uv run streamlit run dashboard.py
